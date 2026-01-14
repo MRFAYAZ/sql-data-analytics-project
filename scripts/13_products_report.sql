@@ -21,7 +21,15 @@ Highlights:
 ==============================================================================================
 */
 
+-- ============================================================================
+-- CREATE VIEW: gold.report_products
+-- ============================================================================
+IF OBJECT_ID('gold.report_products', 'V') IS NOT NULL 
+	DROP VIEW gold.report_products;
+GO
+	
 CREATE VIEW gold.report_products AS
+	
 WITH base_query AS (
 /*---------------------------------------------------------------------------------------------
 1) Base Quaery: Retrieves core columns from fact_sales and dim_products
@@ -104,5 +112,6 @@ SELECT
 	END AS avg_monthly_revenue
 
 FROM product_aggregations
+
 
 
